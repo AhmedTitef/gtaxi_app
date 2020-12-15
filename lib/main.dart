@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:gtaxi_app/screens/loginpage.dart';
 import 'package:gtaxi_app/screens/mainpage.dart';
+import 'package:gtaxi_app/screens/registrationpage.dart';
 
 
 Future<void> main() async {
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: RegistrationPage(),
     );
   }
 }
