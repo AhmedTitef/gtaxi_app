@@ -10,10 +10,10 @@ import 'package:gtaxi_app/screens/registrationpage.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final FirebaseApp app = await Firebase.initializeApp(
-    name: 'db2',
+    // name: 'db2',
     options: Platform.isIOS || Platform.isMacOS
         ? FirebaseOptions(
-      appId: '1:297855924061:ios:c6de2b69b03a5be8',
+      appId: '1:678222681147:ios:b8204e43ae9bb2a348381e',
       apiKey: 'AIzaSyCPVSNS03mulp7ZO-5FXtu6lv9ETU2jshY',
       projectId: 'flutter-firebase-plugins',
       messagingSenderId: '297855924061',
@@ -27,7 +27,9 @@ Future<void> main() async {
       databaseURL: 'https://gtaxi-de48c-default-rtdb.firebaseio.com',
     ),
   );
-runApp(MyApp());
+runApp(MyApp(
+
+));
 }
 
 
@@ -50,7 +52,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: RegistrationPage(),
+      initialRoute: RegistrationPage.id,
+      routes: {
+        RegistrationPage.id : (context) => RegistrationPage(),
+        LoginPage.id : (context) => LoginPage(),
+        MainPage.id : (context) => MainPage(),
+
+      },
     );
   }
 }
