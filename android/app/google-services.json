@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "678222681147",
+    "firebase_url": "https://gtaxi-de48c-default-rtdb.firebaseio.com",
+    "project_id": "gtaxi-de48c",
+    "storage_bucket": "gtaxi-de48c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678222681147:android:ba50fa6df415954848381e",
+        "android_client_info": {
+          "package_name": "com.titef.gtaxi_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678222681147-5le99ql4jnjcamgum57q4imebg43q67l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5YMoap1vXN4vmihYc7-n0W3CF9pO3M30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678222681147-5le99ql4jnjcamgum57q4imebg43q67l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
