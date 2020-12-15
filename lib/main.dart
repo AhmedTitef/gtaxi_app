@@ -2,6 +2,7 @@ import 'dart:io' ;
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:gtaxi_app/screens/loginpage.dart';
 import 'package:gtaxi_app/screens/mainpage.dart';
 
 
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Brand-Regular',
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MainPage(),
+      home: LoginPage(),
     );
   }
 }
