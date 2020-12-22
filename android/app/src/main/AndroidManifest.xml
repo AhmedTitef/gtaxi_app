@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.titef.gtaxi_app">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="gtaxi_app"
         android:icon="@mipmap/ic_launcher">
@@ -37,5 +40,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyA5YMoap1vXN4vmihYc7-n0W3CF9pO3M30"/>
     </application>
 </manifest>
