@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gtaxi_app/brand_colors.dart';
+import 'package:gtaxi_app/datamodels/prediction.dart';
 import 'package:gtaxi_app/dataprovider/appdata.dart';
+import 'package:gtaxi_app/globalvariable.dart';
+import 'package:gtaxi_app/helpers/requestHelper.dart';
+import 'package:gtaxi_app/widgets/BrandDivider.dart';
+import 'package:gtaxi_app/widgets/PredictionTile.dart';
+import 'package:outline_material_icons/outline_material_icons.dart';
 import 'package:provider/provider.dart';
 
 class SearchPage extends StatefulWidget {
@@ -25,6 +31,29 @@ class _SearchPageState extends State<SearchPage> {
     }
   }
 
+
+  List<Prediction> destinationPredictionList = [];
+
+
+  void searchPlace(String placeName)async{
+    if (placeName.length > 1) {
+      String url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$placeName&key=$mapKey&sessiontoken=123254251&components=country:us";
+      var response = await RequestHelper.getRequest(url);
+      if (response == "failed") {
+        return;
+      }
+
+      if (response["status"] == "OK" ){
+        var predictionJson = response["predictions"];
+
+        var thisList = (predictionJson as List).map((e) => Prediction.fromJson(e)).toList();
+        setState(() {
+          destinationPredictionList = thisList;
+        });
+
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,6 +158,9 @@ class _SearchPageState extends State<SearchPage> {
                           child: Padding(
                             padding: const EdgeInsets.all(2.0),
                             child: TextField(
+                              onChanged: (value){
+                                searchPlace(value);
+                              },
                               focusNode: focusDestination,
                               controller: destinationController,
                               decoration: InputDecoration(
@@ -148,9 +180,30 @@ class _SearchPageState extends State<SearchPage> {
                 ],
               ),
             ),
-          )
+          ),
+          destinationPredictionList.length > 0 ?
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8 , horizontal: 16),
+            child: ListView.separated(
+              padding: EdgeInsets.all(0),
+              itemBuilder: (context , index){
+                return PredictionTile(
+                  prediction: destinationPredictionList[index],
+
+                );
+
+              },
+              separatorBuilder: (BuildContext context , int index) => BrandDivider(),
+              itemCount: destinationPredictionList.length,
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+            ),
+          ) : Container(),
+
         ],
       ),
     );
   }
 }
+
+
