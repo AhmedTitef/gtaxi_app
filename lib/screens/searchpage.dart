@@ -182,21 +182,23 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
           destinationPredictionList.length > 0 ?
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8 , horizontal: 16),
-            child: ListView.separated(
-              padding: EdgeInsets.all(0),
-              itemBuilder: (context , index){
-                return PredictionTile(
-                  prediction: destinationPredictionList[index],
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8 , horizontal: 16),
+              child: ListView.separated(
+                padding: EdgeInsets.all(0),
+                itemBuilder: (context , index){
+                  return PredictionTile(
+                    prediction: destinationPredictionList[index],
 
-                );
+                  );
 
-              },
-              separatorBuilder: (BuildContext context , int index) => BrandDivider(),
-              itemCount: destinationPredictionList.length,
-              shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
+                },
+                separatorBuilder: (BuildContext context , int index) => BrandDivider(),
+                itemCount: destinationPredictionList.length,
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+              ),
             ),
           ) : Container(),
 

@@ -41,7 +41,9 @@ class PredictionTile extends StatelessWidget {
       thisPlace.longitude = response["result"]["geometry"]["location"]["lng"];
 
       Provider.of<AppData>(context , listen: false).updateDestinationAddress(thisPlace);
-      print(thisPlace.placeName);
+      print(thisPlace.placeID);
+
+      Navigator.pop(context , "getDirection"); //giving instruction to main page when poping search page
     }
   }
 
